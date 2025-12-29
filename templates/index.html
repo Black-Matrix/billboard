@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<h1>Feed</h1>
+<hr>
+<div class="list-group">
+    {% for post in posts %}
+        <a href="/posts/{{ post.id }}" class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ post.name }}</h5>
+                <small>{{ post.posted }}</small>
+            </div>
+            <p class="mb-1">{{ post.title }}</p>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

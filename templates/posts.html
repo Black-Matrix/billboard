@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create a Post
+{% endblock %}
+
+{% block main%}
+<article class="post">
+    <h1>{{ post.title}}</h1>
+    <section><h4><a href="/profile/{{ post.name }}">{{ post.name }}</a>    <small class="text-body-secondary">on {{ date }}</small></h4></section>
+    <hr>
+    <section>{{ post.contents }}</section>
+</article>
+<style>
+    .post{
+        text-align: left;
+    }
+</style>
+{% endblock %}

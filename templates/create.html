@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Post
+{% endblock %}
+
+{% block main%}
+<form action="/create" method="post">
+    <div class="mb-3">
+        <lable for="title">Title</lable>
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="title" placeholder="Post Title"
+            type="text" required>
+    </div>
+    <div class="mb-3">
+        <lable for="anonymous">Post Anonumously?</lable>
+        <input type="checkbox" class="form-control mx-auto w-auto" name="anonymous">
+    </div>
+    <div class="mb-3">
+        <lable for="contents">Post Body</lable>
+        <textarea class="form-control mx-auto w-auto" name="contents" rows="5" cols="100" required ></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Post</button>
+</form>
+{% endblock %}

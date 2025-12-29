@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Profile - {{ username }}
+{% endblock %}
+
+{% block main %}
+<h1>{{ username }}</h1>
+<h3>{{ bio }}</h3>
+{% if logged %}
+<label for="bio">Update Bio</label>
+<form action="/updatebio/{{ username }}" method="post">
+    <input name="bio" type="text" placeholder="Enter new bio" required>
+    <button type="submit">Update</button>
+</form>
+<label for="new_password">Update Password</label>
+<form action="/changepassword/{{ username }}" method="post">
+    <input name="current_password" type="password" placeholder="Current Password" required>
+    <input name="new_password" type="password" placeholder="New Password" required>
+    <button type="submit">Update</button>
+</form>
+{% endif %}
+<hr>
+<h3>Posts</h3>
+<div class="list-group">
+    {% for post in posts %}
+    <a href="/posts/{{ post.id }}" class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ post.name }}
+                {% if post.anonymous == 1 %}
+                <span>(anonymous)</span>
+                {% endif %}
+            </h5>
+            <small>{{ post.posted }}</small>
+        </div>
+        <p class="mb-1">{{ post.title }}</p>
+        {% if logged %}
+        <form action="/delete/{{ post.id }}" method="post">
+            <input name="id" type="hidden" value="{{ post.id }}">
+            <input name="uname" type="hidden" value="{{ username }}">
+            <button type="submit">Delete</button>
+        </form>
+        {% endif %}
+    </a>
+    {% endfor %}
+    {% endblock %}
