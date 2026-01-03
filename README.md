@@ -1,5 +1,4 @@
 # **Billboard**
-#### Video Demo:  [Youtube Video](https://youtu.be/1KsMnA_OnMc?si=Grba49jfH7stS5OH)
 #### Description: A web application to make Public/Anonymous posts that every user can see irrespective of registration.
 ## Inspiration
 I always wanted for people to have a platform where they can voice their thoughts both publicly and anonymously. This led me to create this web app.
